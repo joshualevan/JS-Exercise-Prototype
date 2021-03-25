@@ -7,6 +7,7 @@
         + If a plane lands, its `isFlying` property is set to false.
 */
 
+
 // EXAMPLE SOLUTION CODE:
 function Airplane(name) {
     this.name = name;
@@ -97,7 +98,7 @@ function Car(model, milesPerGallon) {
 
 Car.prototype.fill = function(gallons) { this.tank += gallons };
 Car.prototype.drive = function(distance) {
-    this.tank -= milesPerGallon * distance;
+    this.tank -= distance / milesPerGallon;
     this.odometer += distance;
 };
 
@@ -113,7 +114,7 @@ function Baby(name, age, favoriteToy) {
     Person.call(this, name, age);
     this.favoriteToy = favoriteToy;
 }
-
+Baby.prototype = Object.create(Person.prototype);
 Baby.prototype.play = function() {
     return `Playing with ${this.favoriteToy}`
 }
